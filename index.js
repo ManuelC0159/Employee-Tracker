@@ -1,14 +1,19 @@
-const mysql = require("mysql");
+const mysql = require("mysql2");
 const inquirer = require("inquirer");
 require("console.table");
+const express = require('express');
+const PORT = process.env.PORT || 3001;
+const app = express();
 
+// Express middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+
 var connection = mysql.createConnection({
-  host: "localhost",
-  port: 3001,
+  host: "127.0.0.1",
   user: "root",
+  port: "3306",
   password: "password",
   database: "employee_db"
 });
